@@ -4,15 +4,26 @@
 class AndKamus {
 
 public:
+
 	AndKamus();
 	void showHelp();
 	void showVersion();
-	std::string getVersion();
 	void evaluateParameter(int counter, const char *args);
+	// just sort form of cout
 	void print(std::string input);
+	// print input to Error styled Message
+	void printError(std::string input);
+	//get App version
+	std::string getVersion();
+	// prettify cli display
+	std::string getRedColor();
+	std::string getReset();
+	std::string getBlueColor();
 
 private:
+	//app version
 	std::string appVersion = "0.1-beta";
+	
 
 };
 
