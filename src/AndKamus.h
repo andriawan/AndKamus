@@ -1,18 +1,18 @@
 #ifndef ANDKAMUS_H
 #define ANDKAMUS_H
-#include <iostream>
-
-using namespace std;
 
 class AndKamus {
 
 public:
 	AndKamus();
-	int showHelp(int counter, const char *args);
-	string getVersion( return Version);
-private:
-	string Version;
+	void showHelp();
+	void showVersion();
+	std::string getVersion();
+	void evaluateParameter(int counter, const char *args);
+	void print(std::string input);
 
+private:
+	std::string appVersion = "0.1-beta";
 
 };
 

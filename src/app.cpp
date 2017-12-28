@@ -12,7 +12,7 @@
 int main(int argc, char const *argv[])
 {
 	AndKamus ak;
-	ak.showHelp(argc, argv[1]);
+	ak.evaluateParameter(argc, argv[1]);
 	// argv[0] = the name of the app
 	// argv[1] = the first argument
 	//cout << "the argument is " << argv[1] << endl;
