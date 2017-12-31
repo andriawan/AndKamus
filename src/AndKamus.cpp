@@ -94,7 +94,7 @@ void AndKamus::printError(std::string input) {
 void AndKamus::find(std::string word) {
 
 	// all go to lib abstraction
-	io::CSVReader<10> in("../assets/andkamus.csv");
+	io::CSVReader<10> in(getCsvData());
 	// string about header column in csv file
 	in.read_header(io::ignore_missing_column, "kata", "arti_1", "arti_2", "arti_3", "arti_4", "arti_5","arti_6","arti_7","arti_8","arti_9");
 	
@@ -117,7 +117,7 @@ void AndKamus::find(std::string word) {
 			check = kata;
 		 	
 		 	// just standart print
-		 	std::cout << arti_1 << ", ";
+		 	std::cout << arti_1;
 
 		 	// every single line must have exactly 10 columns (requirement from lib csv parser)
 		 	// the raw csv doesnt provide it
@@ -126,80 +126,88 @@ void AndKamus::find(std::string word) {
 		 	// by appending "empty" string with comma (just check the csv file on assests folder)
 		 	if (arti_2.compare("empty") == 0) {
 		 		// if is not present, just exit
+		 		std::cout << std::endl;
 		 		exit(0);
 
 		 	}else {
 
-		 		std::cout << arti_2 << ", ";
+		 		std::cout << ", " << arti_2;
 		 	}
 
 		 	if (arti_3.compare("empty") == 0) {
 
+		 		std::cout << std::endl;
 		 		exit(0);
 
 		 	}else {
 
-		 		std::cout << arti_3 << ", ";
+		 		std::cout << ", " << arti_3 ;
 
 		 	}
 
 		 	if (arti_4.compare("empty") == 0) {
 
+		 		std::cout << std::endl;
 		 		exit(0);
 
 		 	}else {
 
-		 		std::cout << arti_4<< ", ";
+		 		std::cout << ", " << arti_4;
 
 		 	}
 
 		 	if (arti_5.compare("empty") == 0) {
 
+		 		std::cout << std::endl;
 		 		exit(0);
 
 		 	}else {
 
-		 		std::cout << arti_5 << ", ";
+		 		std::cout << ", " << arti_5;
 
 		 	}
 
 		 	if (arti_6.compare("empty") == 0) {
 
+		 		std::cout << std::endl;
 		 		exit(0);
 
 		 	}else {
 
-		 		std::cout << arti_6 << ", ";
+		 		std::cout << ", " << arti_6;
 
 		 	}
 
 		 	if (arti_7.compare("empty") == 0) {
 
+		 		std::cout << std::endl;
 		 		exit(0);
 
 		 	}else {
 
-		 		std::cout << arti_7 << ", ";
+		 		std::cout << ", " << arti_7;
 
 		 	}
 
 		 	if (arti_8.compare("empty") == 0) {
 
+		 		std::cout << std::endl;
 		 		exit(0);
 
 		 	}else {
 
-		 		std::cout << arti_8 << ", ";
+		 		std::cout << ", " << arti_8;
 
 		 	}
 
 		 	if (arti_9.compare("empty") == 0) {
 
+		 		std::cout << std::endl;
 		 		exit(0);
 
 		 	}else {
 
-		 		std::cout << arti_9 << ", ";
+		 		std::cout << ", " << arti_9;
 
 		 	}
 
