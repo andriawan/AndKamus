@@ -25,7 +25,7 @@ private:
 	//app version
 	std::string appVersion = "0.1-beta";
 	//path to csv data
-	std::string csvData = "../assets/andkamus.csv";
+	std::string csvData = "/usr/share/AndKamus/data/andkamus.csv";
 	// query ke csv data
 	void find(std::string word);
 	
