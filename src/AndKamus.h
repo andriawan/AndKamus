@@ -15,6 +15,7 @@ public:
 	void printError(std::string input);
 	//get App version
 	std::string getVersion();
+	std::string getCsvData();
 	// prettify cli display
 	std::string getRedColor();
 	std::string getReset();
@@ -23,6 +24,10 @@ public:
 private:
 	//app version
 	std::string appVersion = "0.1-beta";
+	//path to csv data
+	std::string csvData = "../assets/andkamus.csv";
+	// query ke csv data
+	void find(std::string word);
 	
 
 };

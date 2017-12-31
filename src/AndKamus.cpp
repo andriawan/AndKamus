@@ -1,5 +1,7 @@
 // always include standart lib first
 #include <iostream>
+#include <cstdlib>
+#include "../lib/fast-cpp-csv-parser/csv.h"
 
 // user included file
 #include "AndKamus.h"
@@ -23,7 +25,7 @@ void AndKamus::evaluateParameter(int counter, const char *args) {
 	}else if (option == "-v" || option == "--version") {
 		showVersion();
 	}else{
-		// query to csv file
+		find(option);
 	}
 
 }
@@ -50,6 +52,10 @@ std::string AndKamus::getVersion() {
 	return appVersion;
 }
 
+std::string AndKamus::getCsvData() {
+	return csvData;
+}
+
 std::string AndKamus::getRedColor() {
 	return "\e[0;31m";
 }
@@ -71,4 +77,111 @@ void AndKamus::print(std::string input) {
 
 void AndKamus::printError(std::string input) {
 	std::cerr << getRedColor() + input + getReset() << std::endl;
+}
+
+// logic in querying data to csv
+void AndKamus::find(std::string word) {
+
+	io::CSVReader<10> in("../assets/andkamus.csv");
+	in.read_header(io::ignore_missing_column, "kata", "arti_1", "arti_2", "arti_3", "arti_4", "arti_5","arti_6","arti_7","arti_8","arti_9");
+	
+	std::string check, kata, arti_1, arti_2, arti_3, arti_4, arti_5, arti_6, arti_7,arti_8, arti_9;
+
+	while(in.read_row(kata, arti_1, arti_2, arti_3, arti_4, arti_5, arti_6, arti_7, arti_8, arti_9)){
+
+		if (word.compare(kata) == 0) {
+
+			check = kata;
+		 	
+		 	std::cout << arti_1 << ", ";
+
+		 	if (arti_2.compare("empty") == 0) {
+
+		 		exit(0);
+
+		 	}else {
+
+		 		std::cout << arti_2 << ", ";
+		 	}
+
+		 	if (arti_3.compare("empty") == 0) {
+
+		 		exit(0);
+
+		 	}else {
+
+		 		std::cout << arti_3 << ", ";
+
+		 	}
+
+		 	if (arti_4.compare("empty") == 0) {
+
+		 		exit(0);
+
+		 	}else {
+
+		 		std::cout << arti_4<< ", ";
+
+		 	}
+
+		 	if (arti_5.compare("empty") == 0) {
+
+		 		exit(0);
+
+		 	}else {
+
+		 		std::cout << arti_5 << ", ";
+
+		 	}
+
+		 	if (arti_6.compare("empty") == 0) {
+
+		 		exit(0);
+
+		 	}else {
+
+		 		std::cout << arti_6 << ", ";
+
+		 	}
+
+		 	if (arti_7.compare("empty") == 0) {
+
+		 		exit(0);
+
+		 	}else {
+
+		 		std::cout << arti_7 << ", ";
+
+		 	}
+
+		 	if (arti_8.compare("empty") == 0) {
+
+		 		exit(0);
+
+		 	}else {
+
+		 		std::cout << arti_8 << ", ";
+
+		 	}
+
+		 	if (arti_9.compare("empty") == 0) {
+
+		 		exit(0);
+
+		 	}else {
+
+		 		std::cout << arti_9 << ", ";
+
+		 	}
+
+		}
+	}
+
+	if(check.empty()) {
+
+		printError("Error: tidak ada kata yang cocok");
+
+		exit(0);
+
+	}
 }
