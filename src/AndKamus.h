@@ -8,7 +8,9 @@ public:
 	AndKamus();
 	void showHelp();
 	void showVersion();
+	// take an input from user
 	void evaluateParameter(int counter, const char *args);
+	void doInteractiveMode(int flag);
 	// just sort form of cout
 	void print(std::string input);
 	// print input to Error styled Message
@@ -23,11 +25,11 @@ public:
 
 private:
 	//app version
-	std::string appVersion = "0.1-beta";
+	std::string const appVersion = "0.1-beta";
 	//path to csv data
-	std::string csvData = "/usr/share/AndKamus/data/andkamus.csv";
+	std::string const csvData = "/usr/share/AndKamus/data/andkamus.csv";
 	// query ke csv data
-	void find(std::string word);
+	void find(std::string word, int flag);
 	
 
 };

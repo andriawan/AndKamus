@@ -17,7 +17,7 @@ void AndKamus::evaluateParameter(int counter, const char *args) {
 
 	// if args doesn't present
 	if (counter != 2) {
-		printError("\nError: Silahkan Masukan Kata yang akan ditranslate");
+		printError("  ERROR: Silahkan Masukan Kata \n  yang akan ditranslate");
 		showHelp();
 		exit(1);
 	}
@@ -31,23 +31,65 @@ void AndKamus::evaluateParameter(int counter, const char *args) {
 		showHelp();
 	}else if (option == "-v" || option == "--version") {
 		showVersion();
+	}else if (option == "-i" || option == "--interact") {
+		doInteractiveMode(0);
 	}else{
 		// excute query to csv file
-		find(option);
+		// flag 0 indicates that it is
+		// in quick mode
+		find(option,0);
 	}
 
+}
+
+// logic to handle all interactive mode
+// param int flag functions to indicating
+// whether it is started first or not
+void AndKamus::doInteractiveMode(int flag) {
+
+	// if it is started first, it will print info
+	if (flag == 0) {
+		print(" \nAnda Berada Pada Interactive Mode. Tekan CTRL + C untuk keluar");
+		print("--------------------------------------");
+		print("  Masukan kata yang akan ditranslate:");
+		print("--------------------------------------");
+		std::string input;
+		// take input
+		std::cout << ">>> ";
+		// store it to input var
+		std::cin >> input;
+		print("Hasilnya:");
+		// fire up find method with flag int 1
+		find(input,1);
+		// recrusively call the method itself
+		doInteractiveMode(1);
+
+	// second start and so on	
+	}else {
+		print("\n--------------------------------------");
+		print("  Masukan kata yang akan ditranslate:");
+		print("--------------------------------------");
+		std::string input;
+		std::cout << ">>> ";
+		std::cin >> input;
+		print("  Hasilnya:");
+		find(input,1);
+		doInteractiveMode(1);
+
+	}
 }
 
 // print help menu to console
 void AndKamus::showHelp() {
 
 	print("-------------------------");
-	std::cout << getBlueColor() + "AndKamus" + getReset() + " " << getVersion() << std::endl;
+	std::cout << getBlueColor() + "  AndKamus" + getReset() + " " << getVersion() << std::endl;
 	print("-------------------------");
 	std::cout << "\nUsage: AndKamus [kata yang akan ditranslate] atau [opsi yang tersedia]" << std::endl;
 	print("\n   Opsi yang tersedia:");
 	std::cout << "\n   -h,--help\t\tMenampilkan Bantuan" << std::endl;
 	std::cout << "   -v,--version\t\tMenampilkan Informasi Versi Aplikasi" << std::endl;
+	std::cout << "   -i,--interact\tMasuk Interactive Mode" << std::endl;
 }
 
 // show current version
@@ -87,11 +129,18 @@ void AndKamus::print(std::string input) {
 
 // styled error print
 void AndKamus::printError(std::string input) {
-	std::cerr << getRedColor() + input + getReset() << std::endl;
+	print(getRedColor());
+	print("------------------------------------");
+	std::cerr << input << std::endl;
+	print("------------------------------------");
+	print(getReset());
 }
 
 // logic in querying data to csv
-void AndKamus::find(std::string word) {
+// flag is added to indentify mode
+// 0 is quick mode
+// 1 is interactive mode
+void AndKamus::find(std::string word, int flag) {
 
 	// all go to lib abstraction
 	io::CSVReader<10> in(getCsvData());
@@ -126,8 +175,16 @@ void AndKamus::find(std::string word) {
 		 	// by appending "empty" string with comma (just check the csv file on assests folder)
 		 	if (arti_2.compare("empty") == 0) {
 		 		// if is not present, just exit
-		 		std::cout << std::endl;
-		 		exit(0);
+		 		// check whether it is in quick
+		 		// or interactive mode
+		 		if (flag == 1) {
+		 			//do nothing in interactive
+		 			// mode
+		 		}else {
+		 			// quick mode
+		 			std::cout << std::endl;
+		 			exit(0);
+		 		}
 
 		 	}else {
 
@@ -136,8 +193,12 @@ void AndKamus::find(std::string word) {
 
 		 	if (arti_3.compare("empty") == 0) {
 
-		 		std::cout << std::endl;
-		 		exit(0);
+		 		if (flag == 1) {
+
+		 		}else {
+		 			std::cout << std::endl;
+		 			exit(0);
+		 		}
 
 		 	}else {
 
@@ -147,8 +208,12 @@ void AndKamus::find(std::string word) {
 
 		 	if (arti_4.compare("empty") == 0) {
 
-		 		std::cout << std::endl;
-		 		exit(0);
+		 		if (flag == 1) {
+
+		 		}else {
+		 			std::cout << std::endl;
+		 			exit(0);
+		 		}
 
 		 	}else {
 
@@ -158,8 +223,12 @@ void AndKamus::find(std::string word) {
 
 		 	if (arti_5.compare("empty") == 0) {
 
-		 		std::cout << std::endl;
-		 		exit(0);
+		 		if (flag == 1) {
+
+		 		}else {
+		 			std::cout << std::endl;
+		 			exit(0);
+		 		}
 
 		 	}else {
 
@@ -169,8 +238,12 @@ void AndKamus::find(std::string word) {
 
 		 	if (arti_6.compare("empty") == 0) {
 
-		 		std::cout << std::endl;
-		 		exit(0);
+		 		if (flag == 1) {
+
+		 		}else {
+		 			std::cout << std::endl;
+		 			exit(0);
+		 		}
 
 		 	}else {
 
@@ -180,8 +253,12 @@ void AndKamus::find(std::string word) {
 
 		 	if (arti_7.compare("empty") == 0) {
 
-		 		std::cout << std::endl;
-		 		exit(0);
+		 		if (flag == 1) {
+
+		 		}else {
+		 			std::cout << std::endl;
+		 			exit(0);
+		 		}
 
 		 	}else {
 
@@ -191,8 +268,12 @@ void AndKamus::find(std::string word) {
 
 		 	if (arti_8.compare("empty") == 0) {
 
-		 		std::cout << std::endl;
-		 		exit(0);
+		 		if (flag == 1) {
+
+		 		}else {
+		 			std::cout << std::endl;
+		 			exit(0);
+		 		}
 
 		 	}else {
 
@@ -202,8 +283,12 @@ void AndKamus::find(std::string word) {
 
 		 	if (arti_9.compare("empty") == 0) {
 
-		 		std::cout << std::endl;
-		 		exit(0);
+		 		if (flag == 1) {
+
+		 		}else {
+		 			std::cout << std::endl;
+		 			exit(0);
+		 		}
 
 		 	}else {
 
@@ -218,9 +303,13 @@ void AndKamus::find(std::string word) {
 	// if not, just tell the user for some error
 	if(check.empty()) {
 
-		printError("Error: tidak ada kata yang cocok");
-
-		exit(0);
+		// checking the flag
+		if (flag == 1) {
+			printError("  ERROR: tidak ada kata yang cocok");
+ 		}else {
+ 			printError("  ERROR: tidak ada kata yang cocok");
+			exit(0);
+		}
 
 	}
 }
