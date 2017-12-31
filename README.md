@@ -26,6 +26,12 @@ belum tersedia. Jika anda berminat, silahkan pull request
 
 ## Screenshoot
 
+## Help
+![login](https://github.com/andriawan/AndKasir/blob/development/screenshot/login.png "Help menu")
+
+## Version
+![admin](https://github.com/andriawan/AndKasir/blob/development/screenshot/panel-admin.png "Version")
+
 
 Aplikasi ini belum memiliki lisensi (silahkan ajukan bagi anda yang paham tentang lisensi). Aplikasi ini menggunakan library dari user ben-strasser <https://github.com/ben-strasser/fast-cpp-csv-parser.git> dan basis csv file dari project gkamus dengan perombakan ulang struktur file. 
 
