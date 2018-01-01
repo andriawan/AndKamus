@@ -4,7 +4,7 @@ Bismillah
 
 Aplikasi ini adalah aplikasi kamus berbasis CLI dikembangkan dengan C++. Kata _AndKamus_ diambil dari kata Andriawan Kamus :D. Dari saya untuk kalian para developer yang memegang teguh semangat Open Source. Cukup ketikan kata baik dari bahasa indonesia maupun bahasa inggris, hasil akan dimunculkan pada konsol CLI.
 
-gif
+![demo](https://github.com/andriawan/AndKamus/blob/master/assets/demo.gif)
 
 ## Mengapa Saya Mengembangkan Aplikasi ini?
 
@@ -20,7 +20,7 @@ Diakhir tahun 2017, karena kondisi kurang memungkinkan, saya mencoba mencari ket
 
 Untuk compile aplikasi _AndKamus_, anda harus berada di folder root _AndKamus_. Pastikan file Makefile ada. lalu ketikan perintah pada console "make compile". Anda bebas mengatur ulang konfigurasi make filenya. Untuk instalasi ke sistem, anda cukup ketikan pada console "make install" (anda harus berada di folder root AndKamus dan g++ sudah terinstall).
 
-gif
+![install](https://github.com/andriawan/AndKamus/blob/master/assets/install.gif)
 
 ## Documentation
 
@@ -40,10 +40,10 @@ Belum tersedia. Jika anda berminat, silahkan pull request.
 
 ## Help
 
-![menu](https://github.com/andriawan/AndKasir/blob/development/screenshot/login.png "Help menu")
+![menu](https://github.com/andriawan/AndKamus/blob/master/assets/help.png "Help menu")
 
 ## Version
-![version](https://github.com/andriawan/AndKasir/blob/development/screenshot/panel-admin.png "Version")
+![version](https://github.com/andriawan/AndKamus/blob/master/assets/version.png "Version")
 
 ## Lisensi
 
