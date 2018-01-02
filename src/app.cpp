@@ -6,7 +6,8 @@
  */
 
 #include <cstdlib>
-#include "AndKamus.cpp"
+#include <iostream>
+#include "AndKamus.h"
 
 // entry point of the apps
 int main(int argc, char const *argv[])

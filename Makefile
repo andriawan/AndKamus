@@ -1,14 +1,42 @@
-compile:
-	g++ -std=c++11 src/app.cpp -o build/AndKamus -lpthread
+# all configuration file
+
+# compailer
+CC = g++
+# flags
+CFLAGS = -c -std=c++11
+# special flags
+SFLAGS = -lpthread -o
+# install dir
+MKDIR  = mkdir -p
+# install file
+INSTALL_FILE  = install -m 644 -p
+# install binary
+INSTALL_PROGRAM = install -m 755 -p
+# bin directory
+BIN = /usr/bin
+# destination folder
+DEST_DIR = /usr/share/AndKamus
+
+compile: app.o andkamus.o
+	$(CC) *.o $(SFLAGS) build/AndKamus
+
+app.o: src/app.cpp
+	$(CC) $(CFLAGS) src/app.cpp
+
+andkamus.o: src/AndKamus.cpp
+	$(CC) $(CFLAGS) src/AndKamus.cpp
 
 install:
-	cp -u build/AndKamus /usr/bin
-	mkdir -p /usr/share/AndKamus
-	mkdir -p /usr/share/AndKamus/data
-	install -m 755 -p assets/andkamus.csv /usr/share/AndKamus/data/andkamus.csv
+	$(INSTALL_PROGRAM) build/AndKamus /usr/bin
+	$(MKDIR) $(DEST_DIR)
+	$(MKDIR) $(DEST_DIR)/data
+	$(INSTALL_FILE) assets/andkamus.csv $(DEST_DIR)/data/andkamus.csv
 
 uninstall:
-	rm /usr/bin/AndKamus
-	rm -r /usr/share/AndKamus
+	rm $(BIN)/AndKamus
+	rm -r $(DEST_DIR)
+
+clean:
+	rm -f *.o build/AndKamus
 
 all: compile install
