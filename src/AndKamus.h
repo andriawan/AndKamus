@@ -13,6 +13,8 @@ public:
 	void doInteractiveMode(int flag);
 	// just sort form of cout
 	void print(std::string input);
+	// return lowercase string
+	std::string toLowerCase(std::string input);
 	// print input to Error styled Message
 	void printError(std::string input);
 	//get App version

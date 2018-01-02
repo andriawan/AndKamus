@@ -140,8 +140,9 @@ void AndKamus::printError(std::string input) {
 // flag is added to indentify mode
 // 0 is quick mode
 // 1 is interactive mode
-void AndKamus::find(std::string word, int flag) {
+void AndKamus::find(std::string input, int flag) {
 
+	std::string word = toLowerCase(input);
 	// all go to lib abstraction
 	io::CSVReader<10> in(getCsvData());
 	// string about header column in csv file
@@ -312,4 +313,10 @@ void AndKamus::find(std::string word, int flag) {
 		}
 
 	}
+}
+
+// perform lowercase string processing.
+std::string AndKamus::toLowerCase(std::string word) {
+	std::transform(word.begin(),word.end(),word.begin(),tolower);
+	return word;
 }
