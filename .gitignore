@@ -1,1 +1,4 @@
+# build dir 
 /build
+# object file
+*.o
