@@ -18,6 +18,7 @@ BIN = /usr/bin
 DEST_DIR = /usr/share/AndKamus
 
 compile: app.o andkamus.o
+	$(MKDIR) build
 	$(CC) *.o $(SFLAGS) build/AndKamus
 
 app.o: src/app.cpp
