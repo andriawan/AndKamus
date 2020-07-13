@@ -13,9 +13,9 @@ INSTALL_FILE  = install -m 644 -p
 # install binary
 INSTALL_PROGRAM = install -m 755 -p
 # bin directory
-BIN = /usr/bin
+BIN = /usr/local/bin
 # destination folder
-DEST_DIR = /usr/share/AndKamus
+DEST_DIR = /usr/local/share/AndKamus
 
 compile: app.o andkamus.o
 	$(MKDIR) build
@@ -28,7 +28,7 @@ andkamus.o: src/AndKamus.cpp
 	$(CC) $(CFLAGS) src/AndKamus.cpp
 
 install:
-	$(INSTALL_PROGRAM) build/AndKamus /usr/bin
+	$(INSTALL_PROGRAM) build/AndKamus $(BIN)
 	$(MKDIR) $(DEST_DIR)
 	$(MKDIR) $(DEST_DIR)/data
 	$(INSTALL_FILE) assets/andkamus.csv $(DEST_DIR)/data/andkamus.csv

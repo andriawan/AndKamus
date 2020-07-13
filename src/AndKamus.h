@@ -29,7 +29,7 @@ private:
 	//app version
 	std::string const appVersion = "0.1-beta";
 	//path to csv data
-	std::string const csvData = "/usr/share/AndKamus/data/andkamus.csv";
+	std::string const csvData = "/usr/local/share/AndKamus/data/andkamus.csv";
 	// query ke csv data
 	void find(std::string word, int flag);
 	
